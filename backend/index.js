@@ -12,6 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//CacheClear 
+
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
