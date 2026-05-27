@@ -3,17 +3,20 @@ logs
 *.log
 
 # dependencies
-node_modules
+node_modules/
 
 # build
-dist
-dist-ssr
+dist/
+dist-ssr/
 
 # env
 .env
 *.local
 
 # editor files
-.vscode
-.idea
+.vscode/
+.idea/
+
+# OS files
 .DS_Store
+Thumbs.db

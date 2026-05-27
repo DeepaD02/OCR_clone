@@ -6,13 +6,14 @@ const clientRoutes = require("./routes/clientRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const teamRoutes = require("./routes/teamRoutes");
 const diagnosesRoutes = require("./routes/diagnosesRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-//CacheClear 
+//CacheClear
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-store");
@@ -24,6 +25,7 @@ app.use("/api/clients", clientRoutes);
 app.use("/api/teams", teamRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/diagnoses", diagnosesRoutes);
+app.use("/api/auth", authRoutes);
 
 const PORT = 3000;
 

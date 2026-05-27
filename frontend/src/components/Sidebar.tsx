@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+  const handleLogout = () => {
+    // REMOVE TOKEN
+    localStorage.removeItem("token");
+
+    // REDIRECT LOGIN
+    window.location.href = "/login";
+  };
+
   return (
     <div className="w-64 h-screen bg-gray-800 text-white p-4">
       <ul className="space-y-2">
@@ -65,6 +73,12 @@ function Sidebar() {
           </Link>
         </li>
       </ul>
+      <button
+        onClick={handleLogout}
+        className="bg-red-500 text-white px-4 py-2 rounded"
+      >
+        Logout
+      </button>
     </div>
   );
 }
