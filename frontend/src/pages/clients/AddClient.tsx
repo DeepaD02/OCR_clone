@@ -46,7 +46,10 @@ function AddClientForm({ onClose, client }: any) {
           `http://localhost:3000/api/clients/${client.id}`,
           {
             method: "PATCH",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
             body: JSON.stringify(formData),
           },
         );
@@ -119,7 +122,6 @@ function AddClientForm({ onClose, client }: any) {
             {errors.clientName}
           </p>
         </div>
-
         {/* Client Code */}
         <div>
           <label className="block text-sm font-medium mb-1">
@@ -142,7 +144,6 @@ function AddClientForm({ onClose, client }: any) {
           </p>
         </div>
         ++
-
         {/* Buttons */}
         <div className="flex justify-end gap-3 pt-2">
           <button

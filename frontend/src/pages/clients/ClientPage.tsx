@@ -11,10 +11,17 @@ function ClientPage() {
   const [perPage, setPerPage] = useState(10);
   const [total, setTotal] = useState(0);
 
+  const token = localStorage.getItem("token");
+
   const fetchClients = async () => {
     try {
       const res = await fetch(
         `http://localhost:3000/api/clients?page=${page}&perPage=${perPage}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       );
 
       const data = await res.json();
@@ -33,7 +40,11 @@ function ClientPage() {
 
   const handleExport = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/clients/export");
+      const res = await fetch("http://localhost:3000/api/clients/export", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
 
       if (!res.ok) {
         throw new Error("Export failed");
