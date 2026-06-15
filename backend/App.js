@@ -31,7 +31,7 @@ app.get("/contact", (req, res) => {
   res.sendFile("./htmlfiles/contact.html", { root: __dirname });
 });
 app.get("/contactus", (req, res) => {
-  res.status(301).redirect("/contact");
+  res.status(301).redirect("/contact"); 
 });
 
 app.use((req, res) => {
